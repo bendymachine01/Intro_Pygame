@@ -1,3 +1,4 @@
+
 # Estructura de un juego en pygame
  
  ##  Inicializacion 
@@ -19,7 +20,7 @@
 - .set_caption() es la funcion que añade un titulo en en la ventana
 
 ### Funcion set_model 
-`set_model(size = (0.0).flags = 0. dsplay = 0`
+`set_model(size = (0.0).flags = 0. dsplay = 0)`
 - size = (000.400) : defineel tamaño de la pantalla
 -  flags = define uno o mas conportamientos para la ventana.
     valores:
@@ -53,4 +54,85 @@
     - texto : font.reader()
     -superficie genrica : pygame .surface()
     - ventana de juego : pygame .display.set_mode()
-    
+
+    ## Bandera de Colombia con Pygame
+
+```python
+# Importamos la librería pygame
+import pygame
+
+# Inicializamos los módulos de pygame
+pygame.init()
+
+# Establecer título a la pantalla
+pygame.display.set_caption("Bandera de Colombia")
+
+# Establecemos las dimensiones de la ventana
+ANCHO = 400
+ALTO = 400
+ventana = pygame.display.set_mode((ANCHO, ALTO))
+
+# Definimos los colores
+AMARILLO = (255, 223, 0) 
+AZUL = (0, 0, 255)       
+ROJO = (255, 0, 0)     
+
+# Dibujar la bandera
+ventana.fill(AMARILLO) 
+pygame.draw.rect(ventana, AZUL, (0, ALTO // 2, ANCHO, ALTO // 4))  
+pygame.draw.rect(ventana, ROJO, (0, (ALTO // 4) * 3, ANCHO, ALTO // 4))  
+
+# Actualizar la pantalla
+pygame.display.update()
+
+# Bucle de juego
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False  # Salir del bucle
+
+# Cerramos pygame
+pygame.quit()
+```
+
+![bandera](screen.jpg)
+
+## gestion del tiempo y los eventos 
+
+### modulo time
+- ofrecen varia funcines que permiten cronmetrar la sesion acrual (desde el init()) o pausar la ejecucion, por ejemplo:
+    - Funcines:
+        - pygame.tim.get_tickts
+        - pygame.time.waitpyame.time.delay
+
+    - Objeto clock
+        - la funcion tick prmite actuaizar e reloj asociado con el juego acual 
+        - se llama cada vez que se actualiza la pantalla del juego
+        - Permite especificar el numero maximode fotogramas que se muestran por segundo, y por lo tanto controlar la velociadad de ejecucin   del juego.
+        - si insertamos en un bluque de juego la siguiente linea, garantizamos que nunca se ira mas rapido de 50 fotograma por segundo: `clock.tick(50)` 
+
+        ### gestion de eventos
+        - Hayy diferentes formas para que el programa sepa que se ha desencadenando un evento
+        - es ecensial que los programas puedadn conocer inmediatamente las acciones del jugador atravez del teclado, mause, joistick o cualquier otro periferico.
+
+        #### funcion pygame.event.get
+        - permiten obtener todos los eventos en espera deserrganizados y que estan disponibeesen un cl
+        - si nohay ninguno, se obtiene una collecion vacia
+
+```python 
+
+    for event in pygame.event.get():
+        if event.type == pygame.kEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                PARAR JURGO = True 
+```
+#### Funcion pygame. event.wait 
+- Esta funcion espera a que ocurra un evento,y cuando sucede esta dispoible 
+
+```python
+while True:
+        event = pygame.event.wait()
+        if event.type == pygame.QUIT :
+            break
+```
