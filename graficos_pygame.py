@@ -75,6 +75,11 @@ while 1:
     # arco de cicunferencia
     pygame.draw.arc(ventana, cian, (300, 25, 180, 150), PI/2, PI, 1)
 
+    # texto
+    fuente_arial = pygame.font.SysFont("Arial", 35, 1, 1)
+    texto = fuente_arial.render("sistemas guanenta", 1, blanco)
+    ventana.blit(texto,(50,50))
+
     # Actualiza la visualizacion de la ventana
     pygame.display.flip()
 ####################################
