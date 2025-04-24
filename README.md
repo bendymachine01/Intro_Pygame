@@ -164,3 +164,21 @@ while True:
  - pygame usa noslo la nocion de srite, sino la nocion de grupo se spries (group)
  - la nocion de group permite agrupar los objetos del mismo tipo. ejmeplo: todoslos sodados de un ejercito, lo que se entiende como una coleccion de instancias de una clase soldado.
  - un determinado procesamiento se puede aplicar a un conjunto o subconjunto de sprites. ejemplo: cambiar el color de todos los enemigos o hacer invicibes algunos objetos 
+
+ ### clase Sprite en Pygame
+ -Es una forma organizada de crear y manejar objetos que se mueven o cambian en un juego, como personajes, enemigos
+- esta sirve para crear personajes o objetos que se mueven
+- Para mostrar imágenes o animaciones
+- para hacer que algo cambie con el tiempo (spawnear o despawner o hasta moverse)
+- Para detectar colisiones entre objetos
+- Para agrupar muchos objetos y manejarlos fácilmente
+
+- un sprite tiene esto 
+- ```.image```  para que la imagen se muestre.
+
+- ```.rect``` es el rectángulo que indica su posición y tamaño.
+
+- ```.update()``` es el método para cambiar lo que hace el sprite (por ejemplo, moverse).
+- se usa para que el codigo las animaciones o movimientos esten mas claras y organaizadas 
+- ## la clase Group
+- te permite agrupar objetos Sprite y realizar acciones sobre ellos de forma eficiente. Es como una lista especial que te facilita la gestión de múltiples sprites en tu juego. Permite dibujar todos los sprites del grupo con una sola llamada, actualizar sus estados y verificar colisiones con mayor facilidad. 
